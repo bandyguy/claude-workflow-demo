@@ -21,7 +21,10 @@ pkgs.mkShell {
   buildInputs = with pkgs; [
     # Core tools
     docker
-    
+
+    # Node.js and npm for React development
+    nodejs_20
+
     # Additional utilities
     jq
     yq
