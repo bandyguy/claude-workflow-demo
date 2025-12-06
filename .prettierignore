@@ -19,3 +19,6 @@ pnpm-lock.yaml
 .env
 .env.local
 .env.*.local
+
+# AI assistant / Windsurf configuration
+.windsurf

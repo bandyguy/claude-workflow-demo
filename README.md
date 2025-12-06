@@ -94,6 +94,16 @@ This project uses Prettier for code formatting.
   npm run format:check
   ```
 
+- **Pre-commit formatting**:
+
+  After running `npm install`, [`simple-git-hooks`](https://github.com/toplenboren/simple-git-hooks) sets up a `pre-commit` hook that automatically runs:
+
+  ```bash
+  npm run format
+  ```
+
+  on every commit in this repository.
+
 ## Project Structure
 
 ```

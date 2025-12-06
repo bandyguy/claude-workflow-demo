@@ -21,6 +21,14 @@ After checking out the repository:
 npm install
 ```
 
+This command also configures local Git hooks via [`simple-git-hooks`](https://github.com/toplenboren/simple-git-hooks). In particular, the `pre-commit` hook runs:
+
+```bash
+npm run format
+```
+
+before every commit to ensure consistent formatting.
+
 ### Running the Application
 
 ```bash
