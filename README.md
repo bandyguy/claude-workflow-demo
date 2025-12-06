@@ -70,6 +70,22 @@ Preview the production build:
 npm run preview
 ```
 
+### Formatting
+
+This project uses Prettier for code formatting.
+
+- **Format code**:
+
+  ```bash
+  npm run format
+  ```
+
+- **Check formatting (used in CI or pre-commit hooks)**:
+
+  ```bash
+  npm run format:check
+  ```
+
 ## Project Structure
 
 ```
