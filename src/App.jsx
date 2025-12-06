@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './App.css'
 
 function App() {
@@ -12,5 +13,7 @@ function App() {
     </div>
   )
 }
+
+App.propTypes = {}
 
 export default App
