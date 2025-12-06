@@ -1,14 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 
 const THEME_STORAGE_KEY = 'claude-workflow-demo:theme';
 
 const THEMES = ['light', 'dark', 'solarized-light', 'solarized-dark'];
 
+const VIEWS = {
+  HOME: 'home',
+  SETTINGS: 'settings',
+};
+
 function getPreferredTheme() {
-  const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
-  if (stored && THEMES.includes(stored)) {
-    return stored;
+  try {
+    const stored = window.localStorage?.getItem(THEME_STORAGE_KEY);
+    if (stored && THEMES.includes(stored)) {
+      return stored;
+    }
+  } catch (e) {
+    // localStorage not available (private browsing, SSR, etc.)
   }
 
   const prefersDark = window.matchMedia?.(
@@ -23,19 +32,22 @@ function getPreferredTheme() {
 
 function App() {
   const [theme, setTheme] = useState(() => getPreferredTheme());
-  const [view, setView] = useState('home');
+  const [view, setView] = useState(VIEWS.HOME);
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    try {
+      window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch (e) {
+      // localStorage not available - theme still works, just won't persist
+    }
   }, [theme]);
 
-  const handleThemeChange = event => {
+  const handleThemeChange = useCallback(event => {
     const newTheme = event.target.value;
     if (THEMES.includes(newTheme)) {
       setTheme(newTheme);
     }
-  };
+  }, []);
 
   return (
     <div className={`App theme-${theme}`}>
@@ -46,18 +58,20 @@ function App() {
             <button
               type="button"
               className={
-                view === 'home' ? 'App-nav-link is-active' : 'App-nav-link'
+                view === VIEWS.HOME ? 'App-nav-link is-active' : 'App-nav-link'
               }
-              onClick={() => setView('home')}
+              onClick={() => setView(VIEWS.HOME)}
             >
               Home
             </button>
             <button
               type="button"
               className={
-                view === 'settings' ? 'App-nav-link is-active' : 'App-nav-link'
+                view === VIEWS.SETTINGS
+                  ? 'App-nav-link is-active'
+                  : 'App-nav-link'
               }
-              onClick={() => setView('settings')}
+              onClick={() => setView(VIEWS.SETTINGS)}
             >
               Settings
             </button>
@@ -65,13 +79,13 @@ function App() {
         </nav>
       </header>
       <main>
-        {view === 'home' && (
+        {view === VIEWS.HOME && (
           <>
             <h1>Hello World</h1>
             <p>Welcome to Claude Workflow Demo!</p>
           </>
         )}
-        {view === 'settings' && (
+        {view === VIEWS.SETTINGS && (
           <section aria-label="Theme settings" className="Settings">
             <h1>Settings</h1>
             <div className="Settings-group">
