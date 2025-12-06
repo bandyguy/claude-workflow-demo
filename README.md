@@ -19,6 +19,7 @@ This is a simple React application built with Vite that serves as a demonstratio
 - npm or yarn
 
 Alternatively, use Nix for a reproducible development environment:
+
 ```bash
 nix-shell
 ```
@@ -32,6 +33,7 @@ npm install
 ```
 
 **Note on package-lock.json**: This file is committed to version control because:
+
 - Our CI uses `npm ci` which requires it
 - It ensures reproducible builds across all environments
 - This follows npm best practices for applications
@@ -73,6 +75,22 @@ Preview the production build:
 ```bash
 npm run preview
 ```
+
+### Formatting
+
+This project uses Prettier for code formatting.
+
+- **Format code**:
+
+  ```bash
+  npm run format
+  ```
+
+- **Check formatting (used in CI or pre-commit hooks)**:
+
+  ```bash
+  npm run format:check
+  ```
 
 ## Project Structure
 
