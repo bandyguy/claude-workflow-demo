@@ -16,7 +16,7 @@ function getPreferredTheme() {
     if (stored && THEMES.includes(stored)) {
       return stored;
     }
-  } catch (e) {
+  } catch {
     // localStorage not available (private browsing, SSR, etc.)
   }
 
@@ -37,7 +37,7 @@ function App() {
   useEffect(() => {
     try {
       window.localStorage.setItem(THEME_STORAGE_KEY, theme);
-    } catch (e) {
+    } catch {
       // localStorage not available - theme still works, just won't persist
     }
   }, [theme]);
