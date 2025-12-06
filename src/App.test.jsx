@@ -39,8 +39,12 @@ describe('App', () => {
 
     const light = screen.getByRole('radio', { name: /^light$/i });
     const dark = screen.getByRole('radio', { name: /^dark$/i });
-    const solarizedLight = screen.getByRole('radio', { name: /solarized light/i });
-    const solarizedDark = screen.getByRole('radio', { name: /solarized dark/i });
+    const solarizedLight = screen.getByRole('radio', {
+      name: /solarized light/i,
+    });
+    const solarizedDark = screen.getByRole('radio', {
+      name: /solarized dark/i,
+    });
 
     expect(light).toBeInTheDocument();
     expect(dark).toBeInTheDocument();
@@ -54,11 +58,12 @@ describe('App', () => {
     const settingsButton = screen.getByRole('button', { name: /settings/i });
     fireEvent.click(settingsButton);
 
-    const solarizedDark = screen.getByRole('radio', { name: /solarized dark/i });
+    const solarizedDark = screen.getByRole('radio', {
+      name: /solarized dark/i,
+    });
     fireEvent.click(solarizedDark);
 
     const root = document.querySelector('.App');
     expect(root.className).toContain('theme-solarized-dark');
   });
 });
-

@@ -34,7 +34,9 @@
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .App-nav-link:hover {

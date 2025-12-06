@@ -11,7 +11,9 @@ function getPreferredTheme() {
     return stored;
   }
 
-  const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+  const prefersDark = window.matchMedia?.(
+    '(prefers-color-scheme: dark)'
+  ).matches;
   if (prefersDark) {
     return 'dark';
   }
@@ -28,7 +30,7 @@ function App() {
     window.localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [theme]);
 
-  const handleThemeChange = (event) => {
+  const handleThemeChange = event => {
     const newTheme = event.target.value;
     if (THEMES.includes(newTheme)) {
       setTheme(newTheme);
@@ -43,14 +45,18 @@ function App() {
           <div className="App-nav-links">
             <button
               type="button"
-              className={view === 'home' ? 'App-nav-link is-active' : 'App-nav-link'}
+              className={
+                view === 'home' ? 'App-nav-link is-active' : 'App-nav-link'
+              }
               onClick={() => setView('home')}
             >
               Home
             </button>
             <button
               type="button"
-              className={view === 'settings' ? 'App-nav-link is-active' : 'App-nav-link'}
+              className={
+                view === 'settings' ? 'App-nav-link is-active' : 'App-nav-link'
+              }
               onClick={() => setView('settings')}
             >
               Settings
@@ -70,7 +76,9 @@ function App() {
             <h1>Settings</h1>
             <div className="Settings-group">
               <h2>Theme</h2>
-              <p>Select your preferred theme. This will be saved on this device.</p>
+              <p>
+                Select your preferred theme. This will be saved on this device.
+              </p>
               <div className="Settings-theme-options">
                 <label>
                   <input
