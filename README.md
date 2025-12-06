@@ -31,6 +31,11 @@ nix-shell
 npm install
 ```
 
+**Note on package-lock.json**: This file is committed to version control because:
+- Our CI uses `npm ci` which requires it
+- It ensures reproducible builds across all environments
+- This follows npm best practices for applications
+
 ### Development
 
 Start the development server:
