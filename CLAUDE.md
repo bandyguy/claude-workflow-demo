@@ -51,6 +51,7 @@ npm run build   # Build for production
 - Write clear, descriptive commit messages
 - Ensure all tests pass before creating pull requests
 - Keep commits focused and atomic
+- **Always commit `package-lock.json`**: This file must be committed to ensure reproducible builds (required by CI's `npm ci` command)
 
 ## File Structure
 
@@ -72,6 +73,7 @@ npm run build   # Build for production
 ## CI/CD
 
 GitHub Actions workflows are configured for:
+
 - **Testing**: Runs on all pushes and PRs to main
 - **Claude Code**: Triggered by @claude mentions
 
@@ -91,7 +93,8 @@ Ensure all tests pass locally before pushing changes.
 1. Modify `package.json`
 2. Run `npm install`
 3. Test the application thoroughly
-4. Update README if the change affects users
+4. Commit both `package.json` and `package-lock.json` (always commit the lock file)
+5. Update README if the change affects users
 
 ### Debugging
 

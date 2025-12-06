@@ -1,14 +1,16 @@
-import './App.css'
+import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <h1>Hello World</h1>
-        <p>Welcome to Claude Workflow Demo!</p>
       </header>
+      <main>
+        <p>Welcome to Claude Workflow Demo!</p>
+      </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
