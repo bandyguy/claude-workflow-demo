@@ -33,6 +33,7 @@ pkgs.mkShell {
     git
     gnumake
     claude-code
+    gh
 
     # For documentation
     mdbook
