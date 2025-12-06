@@ -1,23 +1,177 @@
 .App {
-  text-align: center;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  padding: 0.75rem 1.5rem;
+}
+
+.App-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.App-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.App-nav-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.App-nav-link {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.App-nav-link:hover {
+  text-decoration: underline;
+}
+
+.App-nav-link.is-active {
+  text-decoration: none;
+}
+
+main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #282c34;
+  padding: 2rem 1rem 3rem;
 }
 
-.App-header {
-  color: white;
+main > * {
+  max-width: 640px;
+  text-align: center;
 }
 
-.App-header h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+main h1 + p {
+  margin-top: 0.75rem;
 }
 
-.App-header p {
-  font-size: 1.5rem;
-  color: #61dafb;
+.Settings {
+  text-align: left;
+}
+
+.Settings-group {
+  margin-top: 1.5rem;
+}
+
+.Settings-theme-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.Settings-theme-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Base theme variables (Solarized palette) */
+:root {
+  --solarized-base03: #002b36;
+  --solarized-base02: #073642;
+  --solarized-base01: #586e75;
+  --solarized-base00: #657b83;
+  --solarized-base0: #839496;
+  --solarized-base1: #93a1a1;
+  --solarized-base2: #eee8d5;
+  --solarized-base3: #fdf6e3;
+  --solarized-yellow: #b58900;
+  --solarized-orange: #cb4b16;
+  --solarized-red: #dc322f;
+  --solarized-magenta: #d33682;
+  --solarized-violet: #6c71c4;
+  --solarized-blue: #268bd2;
+  --solarized-cyan: #2aa198;
+  --solarized-green: #859900;
+}
+
+/* Light theme */
+.theme-light {
+  background-color: #f5f5f5;
+  color: #222222;
+}
+
+.theme-light .App-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.theme-light .App-nav-link.is-active {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+/* Dark theme (generic) */
+.theme-dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+.theme-dark .App-header {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333333;
+}
+
+.theme-dark .App-nav-link.is-active {
+  background-color: #f5f5f5;
+  color: #121212;
+}
+
+/* Solarized Light */
+.theme-solarized-light {
+  background-color: var(--solarized-base3);
+  color: var(--solarized-base00);
+}
+
+.theme-solarized-light .App-header {
+  background-color: var(--solarized-base2);
+  border-bottom: 1px solid var(--solarized-base1);
+}
+
+.theme-solarized-light .App-nav-link.is-active {
+  background-color: var(--solarized-blue);
+  color: var(--solarized-base3);
+}
+
+.theme-solarized-light a {
+  color: var(--solarized-blue);
+}
+
+/* Solarized Dark */
+.theme-solarized-dark {
+  background-color: var(--solarized-base03);
+  color: var(--solarized-base0);
+}
+
+.theme-solarized-dark .App-header {
+  background-color: var(--solarized-base02);
+  border-bottom: 1px solid var(--solarized-base01);
+}
+
+.theme-solarized-dark .App-nav-link.is-active {
+  background-color: var(--solarized-blue);
+  color: var(--solarized-base3);
+}
+
+.theme-solarized-dark a {
+  color: var(--solarized-cyan);
 }
