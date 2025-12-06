@@ -10,8 +10,14 @@ describe('App', () => {
   });
 
   it('renders welcome message', () => {
-    render(<App />);
-    const welcomeText = screen.getByText(/welcome to claude workflow demo/i);
-    expect(welcomeText).toBeInTheDocument();
-  });
-});
+    render(<App />)
+    const welcomeText = screen.getByText(/welcome to claude workflow demo/i)
+    expect(welcomeText).toBeInTheDocument()
+  })
+
+  it('has a main landmark for accessibility', () => {
+    render(<App />)
+    const mainElement = screen.getByRole('main')
+    expect(mainElement).toBeInTheDocument()
+  })
+})
