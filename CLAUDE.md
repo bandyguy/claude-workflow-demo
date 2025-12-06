@@ -91,8 +91,8 @@ Ensure all tests pass locally before pushing changes.
 
 1. Modify `package.json`
 2. Run `npm install`
-3. Commit the updated `package-lock.json` (always commit this file)
-4. Test the application thoroughly
+3. Test the application thoroughly
+4. Commit both `package.json` and `package-lock.json` (always commit the lock file)
 5. Update README if the change affects users
 
 ### Debugging
