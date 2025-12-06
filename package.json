@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "postinstall": "simple-git-hooks"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -27,7 +28,11 @@
     "@vitest/coverage-v8": "^1.6.1",
     "jsdom": "^23.0.1",
     "prettier": "^3.7.4",
+    "simple-git-hooks": "^2.11.1",
     "vite": "^5.4.11",
     "vitest": "^1.0.4"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run format"
   }
 }
