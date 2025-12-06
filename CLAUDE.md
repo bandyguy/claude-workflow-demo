@@ -72,6 +72,7 @@ npm run build   # Build for production
 ## CI/CD
 
 GitHub Actions workflows are configured for:
+
 - **Testing**: Runs on all pushes and PRs to main
 - **Claude Code**: Triggered by @claude mentions
 

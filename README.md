@@ -19,6 +19,7 @@ This is a simple React application built with Vite that serves as a demonstratio
 - npm or yarn
 
 Alternatively, use Nix for a reproducible development environment:
+
 ```bash
 nix-shell
 ```
