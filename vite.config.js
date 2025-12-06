@@ -9,5 +9,22 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.js',
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html', 'lcov'],
+      exclude: [
+        'node_modules/',
+        'src/test/',
+        '**/*.test.{js,jsx}',
+        'vite.config.js',
+        'src/main.jsx',
+      ],
+      thresholds: {
+        lines: 50,
+        functions: 50,
+        branches: 50,
+        statements: 50,
+      },
+    },
   },
 });

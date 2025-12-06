@@ -1,5 +1,7 @@
 # Claude Workflow Demo
 
+[![codecov](https://codecov.io/gh/bandyguy/claude-workflow-demo/branch/main/graph/badge.svg)](https://codecov.io/gh/OWNER/REPO)
+
 A React frontend web application demonstrating automated workflows with Claude Code.
 
 ## Overview
