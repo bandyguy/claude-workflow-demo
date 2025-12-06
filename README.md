@@ -31,6 +31,11 @@ nix-shell
 npm install
 ```
 
+**Note on package-lock.json**: This project commits `package-lock.json` to version control. This file should always be committed because:
+- The CI workflow uses `npm ci` which requires it for reproducible builds
+- It ensures all developers and CI environments use identical dependency versions
+- This is the npm best practice for applications (as opposed to libraries)
+
 ### Development
 
 Start the development server:
